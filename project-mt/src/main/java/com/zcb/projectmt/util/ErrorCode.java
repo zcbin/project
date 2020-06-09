@@ -30,6 +30,7 @@ public interface ErrorCode {
     String UNAUTHORIZED = "A0301"; // 无权限
 
     String PARAMETER_ERROR = "A0400"; // 用户请求参数错误
+    String PARAMETER_IS_REPEAT = "A0401"; //用户请求参数重复
 
     String PARAMETER_IS_EMPTY = "A0410"; //用户请求参数必填为空
 
@@ -41,6 +42,7 @@ public interface ErrorCode {
     String UPDATE_FAILED = "B0101"; //更新失败
 
     String DELETE_FAILED = "B0110"; //删除失败
+
 
 
 

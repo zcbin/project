@@ -52,10 +52,10 @@ public interface IErrorCodeService {
      * 列表
      * @param desc
      * @param status
-     * @param verify
+     * @param approval
      * @param page
      * @param limit
      * @return
      */
-    List<ErrorCode> listErrorCode(String errorCode, String desc, String status, String verify, Integer page, Integer limit);
+    List<ErrorCode> listErrorCode(String errorCode, String desc, String status, String approval, Integer page, Integer limit);
 }

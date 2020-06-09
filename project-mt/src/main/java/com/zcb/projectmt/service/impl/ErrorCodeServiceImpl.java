@@ -49,12 +49,17 @@ public class ErrorCodeServiceImpl implements IErrorCodeService {
 
     @Override
     public ErrorCode getErrorCode(String errorCode) {
-
-        return null;
+        ErrorCodeExample example = new ErrorCodeExample();
+        ErrorCodeExample.Criteria criteria = example.createCriteria();
+        if (StringUtils.isEmpty(errorCode)) {
+            return null;
+        }
+        criteria.andErrorCodeEqualTo(errorCode);
+        return errorCodeMapper.selectOneByExample(example);
     }
 
     @Override
-    public List<ErrorCode> listErrorCode(String errorCode, String desc, String status, String verify, Integer page, Integer limit) {
+    public List<ErrorCode> listErrorCode(String errorCode, String desc, String status, String approval, Integer page, Integer limit) {
         ErrorCodeExample example = new ErrorCodeExample();
         ErrorCodeExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(errorCode)) {
@@ -66,8 +71,8 @@ public class ErrorCodeServiceImpl implements IErrorCodeService {
         if (!StringUtils.isEmpty(status)) {
             criteria.andStatusEqualTo(status);
         }
-        if (!StringUtils.isEmpty(verify)) {
-            criteria.andVerifyEqualTo(verify);
+        if (!StringUtils.isEmpty(approval)) {
+            criteria.andApprovalEqualTo(approval);
         }
         criteria.andDeletedEqualTo(false);
         PageHelper.startPage(page, limit);

@@ -553,6 +553,186 @@ public class ErrorCodeExample {
             return (Criteria) this;
         }
 
+        public Criteria andApplicantIdIsNull() {
+            addCriterion("applicant_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdIsNotNull() {
+            addCriterion("applicant_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdEqualTo(Integer value) {
+            addCriterion("applicant_id =", value, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("applicant_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdNotEqualTo(Integer value) {
+            addCriterion("applicant_id <>", value, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdNotEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("applicant_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdGreaterThan(Integer value) {
+            addCriterion("applicant_id >", value, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdGreaterThanColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("applicant_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("applicant_id >=", value, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdGreaterThanOrEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("applicant_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdLessThan(Integer value) {
+            addCriterion("applicant_id <", value, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdLessThanColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("applicant_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdLessThanOrEqualTo(Integer value) {
+            addCriterion("applicant_id <=", value, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdLessThanOrEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("applicant_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdIn(List<Integer> values) {
+            addCriterion("applicant_id in", values, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdNotIn(List<Integer> values) {
+            addCriterion("applicant_id not in", values, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdBetween(Integer value1, Integer value2) {
+            addCriterion("applicant_id between", value1, value2, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApplicantIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("applicant_id not between", value1, value2, "applicantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdIsNull() {
+            addCriterion("approver_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdIsNotNull() {
+            addCriterion("approver_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdEqualTo(Integer value) {
+            addCriterion("approver_id =", value, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approver_id = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdNotEqualTo(Integer value) {
+            addCriterion("approver_id <>", value, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdNotEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approver_id <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdGreaterThan(Integer value) {
+            addCriterion("approver_id >", value, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdGreaterThanColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approver_id > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("approver_id >=", value, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdGreaterThanOrEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approver_id >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdLessThan(Integer value) {
+            addCriterion("approver_id <", value, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdLessThanColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approver_id < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdLessThanOrEqualTo(Integer value) {
+            addCriterion("approver_id <=", value, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdLessThanOrEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approver_id <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdIn(List<Integer> values) {
+            addCriterion("approver_id in", values, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdNotIn(List<Integer> values) {
+            addCriterion("approver_id not in", values, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdBetween(Integer value1, Integer value2) {
+            addCriterion("approver_id between", value1, value2, "approverId");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("approver_id not between", value1, value2, "approverId");
+            return (Criteria) this;
+        }
+
         public Criteria andAddTimeIsNull() {
             addCriterion("add_time is null");
             return (Criteria) this;
@@ -833,103 +1013,103 @@ public class ErrorCodeExample {
             return (Criteria) this;
         }
 
-        public Criteria andVerifyIsNull() {
-            addCriterion("verify is null");
+        public Criteria andApprovalIsNull() {
+            addCriterion("approval is null");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyIsNotNull() {
-            addCriterion("verify is not null");
+        public Criteria andApprovalIsNotNull() {
+            addCriterion("approval is not null");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyEqualTo(String value) {
-            addCriterion("verify =", value, "verify");
+        public Criteria andApprovalEqualTo(String value) {
+            addCriterion("approval =", value, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyEqualToColumn(ErrorCode.Column column) {
-            addCriterion(new StringBuilder("verify = ").append(column.getEscapedColumnName()).toString());
+        public Criteria andApprovalEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approval = ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVerifyNotEqualTo(String value) {
-            addCriterion("verify <>", value, "verify");
+        public Criteria andApprovalNotEqualTo(String value) {
+            addCriterion("approval <>", value, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyNotEqualToColumn(ErrorCode.Column column) {
-            addCriterion(new StringBuilder("verify <> ").append(column.getEscapedColumnName()).toString());
+        public Criteria andApprovalNotEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approval <> ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVerifyGreaterThan(String value) {
-            addCriterion("verify >", value, "verify");
+        public Criteria andApprovalGreaterThan(String value) {
+            addCriterion("approval >", value, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyGreaterThanColumn(ErrorCode.Column column) {
-            addCriterion(new StringBuilder("verify > ").append(column.getEscapedColumnName()).toString());
+        public Criteria andApprovalGreaterThanColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approval > ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVerifyGreaterThanOrEqualTo(String value) {
-            addCriterion("verify >=", value, "verify");
+        public Criteria andApprovalGreaterThanOrEqualTo(String value) {
+            addCriterion("approval >=", value, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyGreaterThanOrEqualToColumn(ErrorCode.Column column) {
-            addCriterion(new StringBuilder("verify >= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andApprovalGreaterThanOrEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approval >= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVerifyLessThan(String value) {
-            addCriterion("verify <", value, "verify");
+        public Criteria andApprovalLessThan(String value) {
+            addCriterion("approval <", value, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyLessThanColumn(ErrorCode.Column column) {
-            addCriterion(new StringBuilder("verify < ").append(column.getEscapedColumnName()).toString());
+        public Criteria andApprovalLessThanColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approval < ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVerifyLessThanOrEqualTo(String value) {
-            addCriterion("verify <=", value, "verify");
+        public Criteria andApprovalLessThanOrEqualTo(String value) {
+            addCriterion("approval <=", value, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyLessThanOrEqualToColumn(ErrorCode.Column column) {
-            addCriterion(new StringBuilder("verify <= ").append(column.getEscapedColumnName()).toString());
+        public Criteria andApprovalLessThanOrEqualToColumn(ErrorCode.Column column) {
+            addCriterion(new StringBuilder("approval <= ").append(column.getEscapedColumnName()).toString());
             return (Criteria) this;
         }
 
-        public Criteria andVerifyLike(String value) {
-            addCriterion("verify like", value, "verify");
+        public Criteria andApprovalLike(String value) {
+            addCriterion("approval like", value, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyNotLike(String value) {
-            addCriterion("verify not like", value, "verify");
+        public Criteria andApprovalNotLike(String value) {
+            addCriterion("approval not like", value, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyIn(List<String> values) {
-            addCriterion("verify in", values, "verify");
+        public Criteria andApprovalIn(List<String> values) {
+            addCriterion("approval in", values, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyNotIn(List<String> values) {
-            addCriterion("verify not in", values, "verify");
+        public Criteria andApprovalNotIn(List<String> values) {
+            addCriterion("approval not in", values, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyBetween(String value1, String value2) {
-            addCriterion("verify between", value1, value2, "verify");
+        public Criteria andApprovalBetween(String value1, String value2) {
+            addCriterion("approval between", value1, value2, "approval");
             return (Criteria) this;
         }
 
-        public Criteria andVerifyNotBetween(String value1, String value2) {
-            addCriterion("verify not between", value1, value2, "verify");
+        public Criteria andApprovalNotBetween(String value1, String value2) {
+            addCriterion("approval not between", value1, value2, "approval");
             return (Criteria) this;
         }
 
