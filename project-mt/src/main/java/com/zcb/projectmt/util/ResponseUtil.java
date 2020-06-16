@@ -21,38 +21,38 @@ import java.util.Map;
 public class ResponseUtil {
     public static JSONObject ok() {
         JSONObject obj = new JSONObject();
-        obj.put("error_code", ErrorCode.SUCCESSFUL_OPERATION);
-        obj.put("error_message", "成功");
+        obj.put("errorCode", ErrorCode.SUCCESSFUL_OPERATION);
+        obj.put("errorMessage", "成功");
         return obj;
     }
 
     public static JSONObject ok(Object data) {
         JSONObject obj = new JSONObject();
-        obj.put("error_code", ErrorCode.SUCCESSFUL_OPERATION);
-        obj.put("error_message", "成功");
+        obj.put("errorCode", ErrorCode.SUCCESSFUL_OPERATION);
+        obj.put("errorMessage", "成功");
         obj.put("data", data);
         return obj;
     }
 
     public static JSONObject ok(String error_message, Object data) {
         JSONObject obj = new JSONObject();
-        obj.put("error_code", ErrorCode.SUCCESSFUL_OPERATION);
-        obj.put("error_message", error_message);
+        obj.put("errorCode", ErrorCode.SUCCESSFUL_OPERATION);
+        obj.put("errorMessage", error_message);
         obj.put("data", data);
         return obj;
     }
 
     public static JSONObject fail() {
         JSONObject obj = new JSONObject();
-        obj.put("error_code", ErrorCode.SYSTEM_ERROR);
-        obj.put("error_message", "出错了");
+        obj.put("errorCode", ErrorCode.SYSTEM_ERROR);
+        obj.put("errorMessage", "出错了");
         return obj;
     }
 
     public static JSONObject fail(String error_code, String error_message) {
         JSONObject obj = new JSONObject();
-        obj.put("error_code", error_code);
-        obj.put("error_message", error_message);
+        obj.put("errorCode", error_code);
+        obj.put("errorMessage", error_message);
         return obj;
     }
 

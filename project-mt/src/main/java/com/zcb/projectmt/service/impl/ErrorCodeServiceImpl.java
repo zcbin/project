@@ -27,7 +27,6 @@ public class ErrorCodeServiceImpl implements IErrorCodeService {
     @Override
     public int insertErrorCode(ErrorCode errorCode) {
         errorCode.setAddTime(LocalDateTime.now());
-        errorCode.setUpdateTime(LocalDateTime.now());
         return errorCodeMapper.insertSelective(errorCode);
     }
 
@@ -55,24 +54,22 @@ public class ErrorCodeServiceImpl implements IErrorCodeService {
             return null;
         }
         criteria.andErrorCodeEqualTo(errorCode);
+        criteria.andDeletedEqualTo(false);
         return errorCodeMapper.selectOneByExample(example);
     }
 
     @Override
-    public List<ErrorCode> listErrorCode(String errorCode, String desc, String status, String approval, Integer page, Integer limit) {
+    public List<ErrorCode> listErrorCode(String errorCode, String approval, Integer applicantId, Integer page, Integer limit) {
         ErrorCodeExample example = new ErrorCodeExample();
         ErrorCodeExample.Criteria criteria = example.createCriteria();
         if (!StringUtils.isEmpty(errorCode)) {
             criteria.andErrorCodeEqualTo(errorCode);
         }
-        if (!StringUtils.isEmpty(desc)) {
-            criteria.andDescLike(desc);
-        }
-        if (!StringUtils.isEmpty(status)) {
-            criteria.andStatusEqualTo(status);
-        }
         if (!StringUtils.isEmpty(approval)) {
             criteria.andApprovalEqualTo(approval);
+        }
+        if (!StringUtils.isEmpty(applicantId)) {
+            criteria.andApplicantIdEqualTo(applicantId);
         }
         criteria.andDeletedEqualTo(false);
         PageHelper.startPage(page, limit);

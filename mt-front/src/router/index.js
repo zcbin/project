@@ -56,6 +56,34 @@ export const constantRoutes = [
   },
 
   {
+    path: '/errorCode',
+    component: Layout,
+    redirect: 'noredirect',
+    name: 'errorCode',
+    meta: { title: '错误码', icon: 'example' },
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        component: () => import('@/views/errorCode/index'),
+        meta: { title: '错误码', icon: 'table' }
+      },
+      {
+        path: 'application',
+        name: 'application',
+        component: () => import('@/views/errorCode/application'),
+        meta: { title: '申请', icon: 'tree' }
+      },
+      {
+        path: 'approval',
+        name: 'approval',
+        component: () => import('@/views/errorCode/approval'),
+        meta: { title: '审批', icon: 'tree' }
+      }
+    ]
+  },
+
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',

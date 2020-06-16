@@ -9,7 +9,7 @@ class ProjectMtApplicationTests {
 
     @Test
     void contextLoads() {
-        System.out.println(ErrorCode.ALTER_TABLE_NOT_ALLOW);
+
     }
 
 }

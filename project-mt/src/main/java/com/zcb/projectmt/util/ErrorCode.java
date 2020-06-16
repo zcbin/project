@@ -18,6 +18,7 @@ public interface ErrorCode {
 
     String USERNAME_VERIFICATION_FAILED = "A0110"; //用户名校验失败
     String USERNAME_ALREADY_EXISTS = "A0111"; //用户名已存在
+    String USERNAME_NO_EXISTS = "A0112"; //用户不存在
 
     String PASSWORD_VERIFICATION_FAILED = "A0120"; //密码校验失败
     String PASSWORD_LENGTH_NOT_ENOUGH = "A0121"; //密码长度不够
@@ -25,6 +26,7 @@ public interface ErrorCode {
 
     String LOGIN_EXPIRED = "A0230"; //用户登录过期
     String NOT_LOGGED_IN = "A0231"; //用户未登录
+    String USERNAME_PASSWORD_FAILED = "A0232"; //用户名或密码错误
 
     String ABNORMAL_PERMISSIONS = "A0300"; //访问权限异常
     String UNAUTHORIZED = "A0301"; // 无权限

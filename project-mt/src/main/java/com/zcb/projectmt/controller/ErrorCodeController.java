@@ -7,6 +7,7 @@ import com.zcb.projectmt.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -26,19 +27,23 @@ public class ErrorCodeController {
     /**
      * 列表
      * @param errorCode 错误码
-     * @param desc 描述
-     * @param status 状态
      * @param approval 审核状态
      * @param page
      * @param limit
      * @return
      */
     @GetMapping(value = "/list")
-    public JSONObject list(String errorCode, String desc,
-                           String status, String approval,
+    public JSONObject list(String errorCode, String approval,
                            @RequestParam(defaultValue = "1") Integer page,
                            @RequestParam(defaultValue = "10") Integer limit) {
-        List<ErrorCode> errorCodeList = errorCodeService.listErrorCode(errorCode, desc, status, approval, page, limit);
+        List<ErrorCode> errorCodeList = errorCodeService.listErrorCode(errorCode, approval, null, page, limit);
+        return ResponseUtil.ok(errorCodeList);
+    }
+
+    @GetMapping(value = "/listByUser")
+    public JSONObject listByUser(@RequestParam(defaultValue = "1") Integer page,
+                           @RequestParam(defaultValue = "10") Integer limit) {
+        List<ErrorCode> errorCodeList = errorCodeService.listErrorCode(null, null, 1, page, limit);
         return ResponseUtil.ok(errorCodeList);
     }
 
@@ -48,18 +53,15 @@ public class ErrorCodeController {
         if (errorCodeService.getErrorCode(errorCodeString) != null) {
             return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.PARAMETER_IS_REPEAT, "错误码已存在");
         }
+        errorCode.setApplicantId(1); //申请人id
         errorCodeService.insertErrorCode(errorCode);
-        return ResponseUtil.ok();
+        return ResponseUtil.ok(errorCode);
     }
 
     @PostMapping(value = "/update")
     public JSONObject update(@RequestBody ErrorCode errorCode) {
         if (errorCode.getId() == null) {
             return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.PARAMETER_IS_EMPTY, "参数错误");
-        }
-        String errorCodeString = errorCode.getErrorCode();
-        if (errorCodeString != null && errorCodeService.getErrorCode(errorCodeString) != null) {
-            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.PARAMETER_IS_REPEAT, "错误码已存在");
         }
         if (errorCodeService.updateErrorCode(errorCode) == 0) {
             return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.UPDATE_FAILED, "更新失败");
@@ -74,6 +76,25 @@ public class ErrorCodeController {
         }
         if (errorCodeService.deleteErrorCode(id) == 0) {
             return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.DELETE_FAILED, "删除失败");
+        }
+        return ResponseUtil.ok();
+    }
+
+    /**
+     * 审核
+     * @param errorCode
+     * @return
+     */
+    @PostMapping(value = "/approval")
+    public JSONObject approval(@RequestBody ErrorCode errorCode) {
+        if (errorCode.getId() == null) {
+            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.PARAMETER_IS_EMPTY, "参数错误");
+        }
+        errorCode.setApproverId(0001);
+        errorCode.setApprovalTime(LocalDateTime.now());
+
+        if (errorCodeService.updateErrorCode(errorCode) == 0) {
+            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.UPDATE_FAILED, "更新失败");
         }
         return ResponseUtil.ok();
     }
