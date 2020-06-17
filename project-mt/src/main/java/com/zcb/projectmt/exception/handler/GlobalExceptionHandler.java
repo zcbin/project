@@ -1,7 +1,8 @@
-package com.zcb.projectmt.exception;
+package com.zcb.projectmt.exception.handler;
 
 import com.alibaba.fastjson.JSONObject;
-import com.zcb.projectmt.util.ErrorCode;
+import com.zcb.projectmt.common.ErrorCodeEnum;
+import com.zcb.projectmt.exception.NotFoundException;
 import com.zcb.projectmt.util.ResponseUtil;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,12 +27,21 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = BadCredentialsException.class)
     public JSONObject badCredentialsException(BadCredentialsException e) {
-        System.out.println("用户名/密码错误");
-        return ResponseUtil.fail(ErrorCode.USERNAME_PASSWORD_FAILED, "用户名或密码错误");
+        return ResponseUtil.fail(ErrorCodeEnum.USERNAME_PASSWORD_FAILED);
+    }
+
+    /**
+     * 404
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = NotFoundException.class)
+    public JSONObject notFoundException(BadCredentialsException e) {
+        return ResponseUtil.fail(ErrorCodeEnum.REQUEST_NOT_FOUND);
     }
     @ExceptionHandler(value = Exception.class)
     public JSONObject exception(Exception e) {
         System.out.println("e=" + e);
-        return ResponseUtil.fail(ErrorCode.SYSTEM_ERROR, "出错了");
+        return ResponseUtil.fail(ErrorCodeEnum.SYSTEM_ERROR);
     }
 }

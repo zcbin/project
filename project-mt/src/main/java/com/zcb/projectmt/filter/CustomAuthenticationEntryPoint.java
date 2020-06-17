@@ -1,6 +1,6 @@
 package com.zcb.projectmt.filter;
 
-import com.zcb.projectmt.util.ErrorCode;
+import com.zcb.projectmt.common.ErrorCode;
 import com.zcb.projectmt.util.ResponseUtil;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

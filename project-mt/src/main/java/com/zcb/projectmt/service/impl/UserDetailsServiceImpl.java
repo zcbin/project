@@ -2,6 +2,7 @@ package com.zcb.projectmt.service.impl;
 
 import com.zcb.projectmt.domain.User;
 import com.zcb.projectmt.service.IUserService;
+import com.zcb.projectmt.vo.PrincipalUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -40,6 +41,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         List<GrantedAuthority> authorities = roleList.stream()
                 .map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
         System.out.println(authorities);
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
+        //return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
+        return new PrincipalUser(user.getId(), username, user.getPassword(), authorities);
     }
 }

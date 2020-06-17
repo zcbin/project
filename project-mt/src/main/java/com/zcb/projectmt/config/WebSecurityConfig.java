@@ -24,9 +24,9 @@ import org.springframework.web.cors.CorsConfiguration;
 /**
  * @author: zcbin
  * @title: WebSecurityConfig
- * @packageName: com.zcb.minimallwxapi.config
- * @projectName: minimall
- * @description: Spring security 配置类 所有请求都可访问
+ * @packageName:
+ * @projectName:
+ * @description: Spring security 配置类
  * @date: 2020/5/22 15:22
  */
 @Configuration
@@ -55,14 +55,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //因为使用JWT，所以不需要HttpSession
                 .sessionManagement().sessionCreationPolicy( SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()
-                //登录接口放行
+                //登录登出接口放行
                 .antMatchers("/mt/user/login").permitAll()
+                .antMatchers("/mt/user/logout").permitAll()
                 //其他接口全部接受验证
-                .anyRequest().authenticated();
-                //.and()
-                //.addFilter(new JWTAuthenticationFilter(authenticationManager()))
-
-
+                //.anyRequest().authenticated();
+                .anyRequest().access("@rbacAuthorityService.hasPermission(request,authentication)");
 
         //使用自定义的 Token过滤器 验证请求的Token是否合法
         http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
@@ -71,11 +69,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //添加自定义未授权和未登录结果返回
         http
                 .exceptionHandling() //异常处理
-
                 .accessDeniedHandler(accessDeniedHandler) //无权限
-                .authenticationEntryPoint(authenticationEntryPoint); //
-
-
+                .authenticationEntryPoint(authenticationEntryPoint); //未登录
     }
 
     @Bean

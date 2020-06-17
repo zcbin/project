@@ -1,19 +1,17 @@
 package com.zcb.projectmt.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.zcb.projectmt.common.ErrorCode;
+import com.zcb.projectmt.common.UserTokenManager;
 import com.zcb.projectmt.domain.User;
 import com.zcb.projectmt.service.IUserService;
 import com.zcb.projectmt.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;

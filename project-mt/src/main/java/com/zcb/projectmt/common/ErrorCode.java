@@ -1,11 +1,11 @@
-package com.zcb.projectmt.util;
+package com.zcb.projectmt.common;
 
 /**
  * @author: zcbin
  * @title: ErrorCode
  * @packageName: com.zcb.projectmt.util
  * @projectName: project
- * @description: 错误码
+ * @description: 通用错误码
  * @date: 2020/6/4 10:54
  */
 public interface ErrorCode {

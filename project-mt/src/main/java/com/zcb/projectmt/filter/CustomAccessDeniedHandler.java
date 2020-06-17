@@ -1,6 +1,6 @@
 package com.zcb.projectmt.filter;
 
-import com.zcb.projectmt.util.ErrorCode;
+import com.zcb.projectmt.common.ErrorCode;
 import com.zcb.projectmt.util.ResponseUtil;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

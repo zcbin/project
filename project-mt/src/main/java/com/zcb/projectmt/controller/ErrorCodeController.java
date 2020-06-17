@@ -51,7 +51,7 @@ public class ErrorCodeController {
     public JSONObject insert(@RequestBody ErrorCode errorCode) {
         String errorCodeString = errorCode.getErrorCode();
         if (errorCodeService.getErrorCode(errorCodeString) != null) {
-            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.PARAMETER_IS_REPEAT, "错误码已存在");
+            return ResponseUtil.fail(com.zcb.projectmt.common.ErrorCode.PARAMETER_IS_REPEAT, "错误码已存在");
         }
         errorCode.setApplicantId(1); //申请人id
         errorCodeService.insertErrorCode(errorCode);
@@ -61,10 +61,10 @@ public class ErrorCodeController {
     @PostMapping(value = "/update")
     public JSONObject update(@RequestBody ErrorCode errorCode) {
         if (errorCode.getId() == null) {
-            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.PARAMETER_IS_EMPTY, "参数错误");
+            return ResponseUtil.fail(com.zcb.projectmt.common.ErrorCode.PARAMETER_IS_EMPTY, "参数错误");
         }
         if (errorCodeService.updateErrorCode(errorCode) == 0) {
-            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.UPDATE_FAILED, "更新失败");
+            return ResponseUtil.fail(com.zcb.projectmt.common.ErrorCode.UPDATE_FAILED, "更新失败");
         }
         return ResponseUtil.ok();
     }
@@ -72,10 +72,10 @@ public class ErrorCodeController {
     public JSONObject delete(@RequestBody ErrorCode errorCode) {
         Integer id = errorCode.getId();
         if (id == null) {
-            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.PARAMETER_IS_EMPTY, "参数错误");
+            return ResponseUtil.fail(com.zcb.projectmt.common.ErrorCode.PARAMETER_IS_EMPTY, "参数错误");
         }
         if (errorCodeService.deleteErrorCode(id) == 0) {
-            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.DELETE_FAILED, "删除失败");
+            return ResponseUtil.fail(com.zcb.projectmt.common.ErrorCode.DELETE_FAILED, "删除失败");
         }
         return ResponseUtil.ok();
     }
@@ -88,13 +88,13 @@ public class ErrorCodeController {
     @PostMapping(value = "/approval")
     public JSONObject approval(@RequestBody ErrorCode errorCode) {
         if (errorCode.getId() == null) {
-            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.PARAMETER_IS_EMPTY, "参数错误");
+            return ResponseUtil.fail(com.zcb.projectmt.common.ErrorCode.PARAMETER_IS_EMPTY, "参数错误");
         }
         errorCode.setApproverId(0001);
         errorCode.setApprovalTime(LocalDateTime.now());
 
         if (errorCodeService.updateErrorCode(errorCode) == 0) {
-            return ResponseUtil.fail(com.zcb.projectmt.util.ErrorCode.UPDATE_FAILED, "更新失败");
+            return ResponseUtil.fail(com.zcb.projectmt.common.ErrorCode.UPDATE_FAILED, "更新失败");
         }
         return ResponseUtil.ok();
     }

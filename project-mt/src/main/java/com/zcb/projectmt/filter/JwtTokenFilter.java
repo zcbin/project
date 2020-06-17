@@ -1,7 +1,7 @@
 package com.zcb.projectmt.filter;
 
 
-import com.zcb.projectmt.util.JwtUtil;
+import com.zcb.projectmt.common.UserTokenManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -33,9 +33,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         String token = request.getHeader( HEADER_STRING );
-        JwtUtil jwtUtil = new JwtUtil();
         if (null != token) {
-            String username = jwtUtil.verifyTokenAndGetUserName(token);
+            String username = UserTokenManager.getUserName(token);
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 

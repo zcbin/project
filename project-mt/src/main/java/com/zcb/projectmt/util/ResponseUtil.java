@@ -1,11 +1,8 @@
 package com.zcb.projectmt.util;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.Page;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.zcb.projectmt.common.ErrorCode;
+import com.zcb.projectmt.common.ErrorCodeEnum;
 
 /**
  * 响应操作结果
@@ -21,15 +18,15 @@ import java.util.Map;
 public class ResponseUtil {
     public static JSONObject ok() {
         JSONObject obj = new JSONObject();
-        obj.put("errorCode", ErrorCode.SUCCESSFUL_OPERATION);
-        obj.put("errorMessage", "成功");
+        obj.put("errorCode", ErrorCodeEnum.SUCCESSFUL_OPERATION.getErrorCodeCode());
+        obj.put("errorMessage", ErrorCodeEnum.SUCCESSFUL_OPERATION.getErrorMessageMessage());
         return obj;
     }
 
     public static JSONObject ok(Object data) {
         JSONObject obj = new JSONObject();
-        obj.put("errorCode", ErrorCode.SUCCESSFUL_OPERATION);
-        obj.put("errorMessage", "成功");
+        obj.put("errorCode", ErrorCodeEnum.SUCCESSFUL_OPERATION.getErrorCodeCode());
+        obj.put("errorMessage", ErrorCodeEnum.SUCCESSFUL_OPERATION.getErrorMessageMessage());
         obj.put("data", data);
         return obj;
     }
@@ -49,6 +46,24 @@ public class ResponseUtil {
         return obj;
     }
 
+    /**
+     * 系统定义错误码及消息
+     * @param errorCodeEnum
+     * @return
+     */
+    public static JSONObject fail(ErrorCodeEnum errorCodeEnum) {
+        JSONObject obj = new JSONObject();
+        obj.put("errorCode", errorCodeEnum.getErrorCodeCode());
+        obj.put("errorMessage", errorCodeEnum.getErrorMessageMessage());
+        return obj;
+    }
+
+    /**
+     * 自定义错误码及消息
+     * @param error_code
+     * @param error_message
+     * @return
+     */
     public static JSONObject fail(String error_code, String error_message) {
         JSONObject obj = new JSONObject();
         obj.put("errorCode", error_code);
