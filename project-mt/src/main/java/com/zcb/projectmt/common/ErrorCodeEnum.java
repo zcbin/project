@@ -32,15 +32,16 @@ public enum ErrorCodeEnum {
 
     PARAMETER_ERROR("A0400", "用户请求参数错误"),
     PARAMETER_IS_REPEAT("A0401", "用户请求参数重复"),
+    PARAMETER_IS_EMPTY("A0402", "用户请求参数必填为空"),
 
-    PARAMETER_IS_EMPTY("A0410", "用户请求参数必填为空"),
-
-    REQUEST_NOT_FOUND("A0420", "用户请求URL不存在"), //404
+    REQUEST_NOT_FOUND("A0410", "用户请求URL不存在"), //404
+    REQUEST_METHOD_NOT_SUPPORT("A0411", "不支持的请求方法"),
 
     SYSTEM_ERROR("B0001", "出错了"), //系统执行出错
-    OPERATION_FAILED("B0100", "B0100"),
+    OPERATION_FAILED("B0100", "操作失败"),
 
     UPDATE_FAILED("B0101", "更新失败"),
+    INSERT_FAILED("B0102", "新增失败"),
 
     DELETE_FAILED("B0110", "删除失败");
 

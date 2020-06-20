@@ -25,7 +25,7 @@ import org.springframework.web.cors.CorsConfiguration;
  * @author: zcbin
  * @title: WebSecurityConfig
  * @packageName:
- * @projectName:
+ * @projectName: project
  * @description: Spring security 配置类
  * @date: 2020/5/22 15:22
  */
@@ -60,7 +60,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/mt/user/logout").permitAll()
                 //其他接口全部接受验证
                 //.anyRequest().authenticated();
-                .anyRequest().access("@rbacAuthorityService.hasPermission(request,authentication)");
+                //所有接口不验证，测试
+                .anyRequest().permitAll();
+                //.anyRequest().access("@rbacAuthorityService.hasPermission(request,authentication)");
 
         //使用自定义的 Token过滤器 验证请求的Token是否合法
         http.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);

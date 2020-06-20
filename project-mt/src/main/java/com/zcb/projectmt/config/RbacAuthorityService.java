@@ -49,7 +49,6 @@ public class RbacAuthorityService {
 
         Object userInfo = authentication.getPrincipal();
         boolean hasPermission = false;
-        System.out.println(userInfo);
         if (userInfo instanceof UserDetails) {
             PrincipalUser principalUser = (PrincipalUser) userInfo;
             Integer userId = principalUser.getId();
@@ -85,8 +84,6 @@ public class RbacAuthorityService {
         Map<String, List<String>> urlMapping = allUrlMapping();
 
         for (String uri : urlMapping.keySet()) {
-            System.out.println(uri);
-            System.out.println(urlMapping.get(uri));
             // 通过 AntPathRequestMatcher 匹配 url
             // 可以通过 2 种方式创建 AntPathRequestMatcher
             // 1：new AntPathRequestMatcher(uri,method) 这种方式可以直接判断方法是否匹配，因为这里我们把 方法不匹配 自定义抛出，所以，我们使用第2种方式创建
@@ -120,13 +117,14 @@ public class RbacAuthorityService {
             Set<String> url = k.getPatternsCondition()
                     .getPatterns();
             RequestMethodsRequestCondition method = k.getMethodsCondition();
+
+            //
             // 为每个URL添加所有的请求方法
             url.forEach(s -> urlMapping.put(s, method.getMethods()
                     .stream()
                     .map(Enum::toString)
                     .collect(Collectors.toList())));
         });
-        System.out.println(urlMapping);
         return urlMapping;
     }
 }

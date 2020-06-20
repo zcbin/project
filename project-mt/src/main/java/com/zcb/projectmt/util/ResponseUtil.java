@@ -31,10 +31,10 @@ public class ResponseUtil {
         return obj;
     }
 
-    public static JSONObject ok(String error_message, Object data) {
+    public static JSONObject ok(String errorMessage, Object data) {
         JSONObject obj = new JSONObject();
-        obj.put("errorCode", ErrorCode.SUCCESSFUL_OPERATION);
-        obj.put("errorMessage", error_message);
+        obj.put("errorCode", ErrorCodeEnum.SUCCESSFUL_OPERATION.getErrorCodeCode());
+        obj.put("errorMessage", errorMessage);
         obj.put("data", data);
         return obj;
     }
@@ -57,7 +57,12 @@ public class ResponseUtil {
         obj.put("errorMessage", errorCodeEnum.getErrorMessageMessage());
         return obj;
     }
-
+    public static JSONObject fail(ErrorCodeEnum errorCodeEnum, String errorMessage) {
+        JSONObject obj = new JSONObject();
+        obj.put("errorCode", errorCodeEnum.getErrorCodeCode());
+        obj.put("errorMessage", errorMessage);
+        return obj;
+    }
     /**
      * 自定义错误码及消息
      * @param error_code

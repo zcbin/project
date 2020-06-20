@@ -85,6 +85,9 @@
         <table tableName="role_permission">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+        <table tableName="menu">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
         <!--管理员-->
         <!--<table tableName="admin">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>

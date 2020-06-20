@@ -33,6 +33,7 @@ public class ErrorCodeController {
      * @return
      */
     @GetMapping(value = "/list")
+
     public JSONObject list(String errorCode, String approval,
                            @RequestParam(defaultValue = "1") Integer page,
                            @RequestParam(defaultValue = "10") Integer limit) {

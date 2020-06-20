@@ -8,6 +8,7 @@ package com.zcb.projectmt.common;
  * @description: 通用错误码
  * @date: 2020/6/4 10:54
  */
+@Deprecated
 public interface ErrorCode {
     String SUCCESSFUL_OPERATION = "00000"; // 操作成功
 
